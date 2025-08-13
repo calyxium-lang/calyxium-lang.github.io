@@ -1,29 +1,36 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2025-08-13 07:48:33 -0400
-categories: jekyll update
+title: "Welcome to Calyxium!"
+date: 2025-08-13 07:48:33 -0400
+categories: calyxium introduction
+css: /assets/css/calyxium.css
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-Jekyll requires blog post files to be named according to the following format:
+Welcome to the official blog of **Calyxium**, a modern statically-typed programming language designed for performance, readability, and expressiveness.  
 
-`YEAR-MONTH-DAY-title.MARKUP`
+This blog will share updates about the language, the virtual machine, standard library additions, tutorials, and community news.  
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+## Getting Started with Calyxium
 
-Jekyll also offers powerful support for code snippets:
+Here's a simple Calyxium example to get you started:
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+```calyxium
+let factorial(n) {
+  if n <= 1 then n else n * factorial(n - 1)
+}
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+print(factorial(5))
+```
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+Calyxium supports higher-order functions and clean functional-style syntax:
+```calyxium
+let sqr = fn x -> x * x
+print(5 |> sqr)
+```
+
+## Resources
+
+- Documentation: [https://calyxium-lang.github.io/docs/](https://calyxium-lang.github.io/docs/)
+- Source Code: [https://github.com/calyxium-lang/calyxium](https://github.com/calyxium-lang/calyxium)
+
+Stay tuned for more posts about advanced features, tutorials, and VM internals. We welcome contributions from the community, whether it's libraries, tutorials, or ideas to improve the language.
