@@ -502,6 +502,9 @@ indicate the start of each command. Lines that don’t start with <code>$</code>
 show the output of the previous command. Unless stated otherwise, PowerShell-specific
 examples will use <code>&gt;</code> rather than <code>$</code>.</p>
 </blockquote>
+<h3 id="calyxium-installer"><a class="header" href="#calyxium-installer">Calyxium Installer</a></h3>
+<p>Currently Calyxup isn't finished so you are going to have to install
+the latest version semi manually from the <a href="https://calyxium-lang.github.io/downloads/">downloads page</a></p>
 <h3 id="installing-calyxium-and-calyxup-on-windows-linux-and-macos"><a class="header" href="#installing-calyxium-and-calyxup-on-windows-linux-and-macos">Installing <code>Calyxium</code> and <code>calyxup</code> on Windows, Linux and MacOS</a></h3>
 <blockquote>
 <p>PowerShell is required for calyxup
@@ -698,8 +701,7 @@ let square(x: int): int {
 <blockquote>
 <p>Note: It is <strong>highly</strong> recommend that you use <code>calyxup</code>.
 <a href="ch01-01-installation.html">Standard Installation Method page</a>.<br />
-This guide is not for the faint hearted. You have been warned!<br />
-Currently this is the only method to install Calyxium</p>
+This guide is not for the faint hearted. You have been warned!\</p>
 </blockquote>
 <h2 id="building-it-yourself"><a class="header" href="#building-it-yourself">Building it yourself</a></h2>
 <p>This method may not always result in a successful install as the version of Calyxium on Github may have some compatibility issues; especially if you use the dev branch. It is recommend that you stay on the the main branch which has less updates but should remain compatible for all devices. Of course, because you are using a more up to date version of Calyxium that has not been publicly released yet there may be new breaking changes that have not yet been documented in the books. With that out of the way, lets start with cloning the repository:</p>
@@ -724,7 +726,7 @@ This is normally located at <code>%USERPROFILE%\Documents\Github\</code> for Win
 <p>You can download and install OCaml from the <a href="https://ocaml.org/install#win">official site</a>.</p>
 <h3 id="installing-dune"><a class="header" href="#installing-dune">Installing Dune</a></h3>
 <p>Once you have installed OCaml you will need to install Dune using the following command.</p>
-<pre><code class="language-console">$ opam install dune zarith
+<pre><code class="language-console">$ opam install dune
 </code></pre>
 <hr />
 <p>If you are having issues with opam, remember to activate the opam switch with the following command on cmd.</p>
