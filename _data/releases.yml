@@ -1,0 +1,37 @@
+latest:
+  version: "1.0.0"
+  date: "2025-08-14"
+  notes:
+    - "First public release"
+    - "Added syntax highlighting"
+    - "Added bytecode interpreter"
+    - "Added cross-platform builds"
+  downloads:
+    - platform: "Windows (x64)"
+      description: "Installer for Windows 10/11"
+      file: "/downloads/calyxium-1.0.0-win64.exe"
+      sha256: "abc123..."
+    - platform: "Linux (x64)"
+      description: "AppImage for most Linux distributions"
+      file: "/downloads/calyxium-1.0.0-x86_64.AppImage"
+      sha256: "def456..."
+    - platform: "macOS (Universal)"
+      description: "Apple Silicon + Intel"
+      file: "/downloads/calyxium-1.0.0-macos.dmg"
+      sha256: "ghi789..."
+
+older:
+  - version: "0.9.0"
+    date: "2025-06-01"
+    notes:
+      - "Beta release"
+      - "Initial language parser"
+    downloads:
+      - platform: "Windows (x64)"
+        description: "Installer for Windows 10/11"
+        file: "/downloads/calyxium-0.9.0-win64.exe"
+        sha256: "oldabc..."
+      - platform: "Linux (x64)"
+        description: "AppImage for most Linux distributions"
+        file: "/downloads/calyxium-0.9.0-x86_64.AppImage"
+        sha256: "olddef..."

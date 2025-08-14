@@ -30,7 +30,7 @@ print(5 |> sqr)
 
 ## Resources
 
-- Documentation: [https://calyxium-lang.github.io/docs/](https://calyxium-lang.github.io/docs/)
-- Source Code: [https://github.com/calyxium-lang/calyxium](https://github.com/calyxium-lang/calyxium)
+- Documentation: [Documentation](https://calyxium-lang.github.io/docs/)
+- Source Code: [Source Code](https://github.com/calyxium-lang/calyxium)
 
 Stay tuned for more posts about advanced features, tutorials, and VM internals. We welcome contributions from the community, whether it's libraries, tutorials, or ideas to improve the language.
