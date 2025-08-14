@@ -35,3 +35,17 @@ older:
         description: "AppImage for most Linux distributions"
         file: "/downloads/calyxium-0.9.0-x86_64.AppImage"
         sha256: "olddef..."
+  - version: "0.8.0"
+    date: "2025-04-15"
+    notes:
+      - "Alpha release"
+      - "Initial parser prototype"
+    downloads:
+      - platform: "Windows (x64)"
+        description: "Installer for Windows 10/11"
+        file: "/downloads/calyxium-0.8.0-win64.exe"
+        sha256: "olderabc..."
+      - platform: "Linux (x64)"
+        description: "AppImage for most Linux distributions"
+        file: "/downloads/calyxium-0.8.0-x86_64.AppImage"
+        sha256: "olderdef..."
