@@ -187,7 +187,7 @@
 <p>As you can see in <a href="appendix-01-keywords.html#deprecated-keywords">Appendix A</a> <code>for</code> loops have been discontinued
 and are no longer accessible. For those of you who are used to imperative programming this may seem like a shock;
 how am I supposed to loop things? You may ask, well its pretty simple. You use the <code>rec</code> keyword. Below is a template <code>for</code> loop and how to use it.</p>
-<pre><code class="language-ocaml">let rec iterator(index: int, max: int): unit  {
+<pre><code class="language-ocaml">let rec iterator(index, max)  {
     if index &lt; max then {
         print(index)
         iterator(index + 1, max)
@@ -200,18 +200,15 @@ iterator(0, 9)
 This is a very simple <code>for</code> loop style function but they can get much more
 complex giving you more control than the standard <code>for</code> keyword from other languages.
 Calling the <code>iterator</code> function starts the loop and you pass in index 0 and the max loop value.<br />
-Passing in the values like this is similar to <code>for i in range(start,end)</code> in Python.</p>
+Passing in the values like this is similar to <code>for i in range(start, end)</code> in Python.</p>
 <h3 id="while-loops"><a class="header" href="#while-loops">While loops</a></h3>
-<p>You can do a similar thing for a <code>while</code> loop with the following code.<br />
-Currently this will not work as mutable variables need to be added.</p>
-<pre><code class="language-ocaml">let rec iterator(boolean: bool): unit  {
-    if boolean then {
-        print("I'm a happy while loop!")
-        iterator(boolean)
-    }
+<p>You can do a similar thing for a <code>while</code> loop with the following code.</p>
+<pre><code class="language-ocaml">let rec iterator() {
+    print("I'm a happy while loop!")
+    iterator()
 }
 
-iterator(boolean)
+iterator()
 </code></pre>
 <style>
   #highlight-target {

@@ -285,7 +285,10 @@ might want to skip Chapter 2 and go straight to Chapter 3, returning to Chapter
 <li><code>mod</code> - define a module</li>
 <li><code>true</code> - Boolean true literal</li>
 <li><code>false</code> - Boolean false literal</li>
-<li><code>type</code> - define an enumeration, record and ADT</li>
+<li><code>enum</code> - define an enumeration</li>
+<li><code>record</code> - define a record</li>
+<li><code>type</code> - define a ADT</li>
+<li><code>fn</code> - define a anonymous functions, lambda abstraction</li>
 </ul>
 <h3 id="deprecated-keywords"><a class="header" href="#deprecated-keywords">Deprecated keywords</a></h3>
 <ul>
@@ -297,7 +300,6 @@ Calyxium for potential future use.</p>
 <ul>
 <li><code>class</code></li>
 <li><code>extends</code></li>
-<li><code>fn</code></li>
 <li><code>ref</code></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="appendix-b-operators-and-symbols"><a class="header" href="#appendix-b-operators-and-symbols">Appendix B: Operators and Symbols</a></h1>
@@ -390,6 +392,9 @@ Calyxium for potential future use.</p>
 <li><code>length</code> - returns the size of an array or string</li>
 <li><code>input</code> - displays the prompt and reads a line of text from standard input, returning it as a unit.</li>
 <li><code>assert</code> - fails if the boolean expression is false</li>
+<li><code>head</code> - returns the first element of an array</li>
+<li><code>tail</code> - returns a new array containing all elements except the first</li>
+<li><code>reverse</code> - returns a new array with elements in the opposite order</li>
 </ul>
 <h3 id="built-ins-reserved-for-future-use"><a class="header" href="#built-ins-reserved-for-future-use">Built-ins Reserved for Future Use</a></h3>
 <p>The following built-ins do not yet have any functionality but are reserved by
@@ -398,9 +403,6 @@ Calyxium for potential future use.</p>
 <li><code>map</code> -  applies a function to each element of an array, returning a new array with the results</li>
 <li><code>filter</code> - returns a new array containing only the elements for which the function returns <code>true</code></li>
 <li><code>fold</code> - reduces an array to a single value by applying a function cumulatively</li>
-<li><code>head</code> - returns the first element of an array</li>
-<li><code>tail</code> - returns a new array containing all elements except the first</li>
-<li><code>reverse</code> - returns a new array with elements in the opposite order</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="appendix-d-code-bytes"><a class="header" href="#appendix-d-code-bytes">Appendix D: Code Bytes</a></h1>
 <p>This appendix contains some commonly used snippet examples in Calyxium; designed to be searched by that search bar up <span id="arrow" style="display: inline-block; transition: transform 0.2s ease; font-size: 2em; transform-origin: center;">↑</span>    give it a try!</p>
@@ -411,7 +413,7 @@ Calyxium for potential future use.</p>
 <p>As you can see in <a href="appendix-01-keywords.html#deprecated-keywords">Appendix A</a> <code>for</code> loops have been discontinued
 and are no longer accessible. For those of you who are used to imperative programming this may seem like a shock;
 how am I supposed to loop things? You may ask, well its pretty simple. You use the <code>rec</code> keyword. Below is a template <code>for</code> loop and how to use it.</p>
-<pre><code class="language-ocaml">let rec iterator(index: int, max: int): unit  {
+<pre><code class="language-ocaml">let rec iterator(index, max)  {
     if index &lt; max then {
         print(index)
         iterator(index + 1, max)
@@ -424,18 +426,15 @@ iterator(0, 9)
 This is a very simple <code>for</code> loop style function but they can get much more
 complex giving you more control than the standard <code>for</code> keyword from other languages.
 Calling the <code>iterator</code> function starts the loop and you pass in index 0 and the max loop value.<br />
-Passing in the values like this is similar to <code>for i in range(start,end)</code> in Python.</p>
+Passing in the values like this is similar to <code>for i in range(start, end)</code> in Python.</p>
 <h3 id="while-loops"><a class="header" href="#while-loops">While loops</a></h3>
-<p>You can do a similar thing for a <code>while</code> loop with the following code.<br />
-Currently this will not work as mutable variables need to be added.</p>
-<pre><code class="language-ocaml">let rec iterator(boolean: bool): unit  {
-    if boolean then {
-        print("I'm a happy while loop!")
-        iterator(boolean)
-    }
+<p>You can do a similar thing for a <code>while</code> loop with the following code.</p>
+<pre><code class="language-ocaml">let rec iterator() {
+    print("I'm a happy while loop!")
+    iterator()
 }
 
-iterator(boolean)
+iterator()
 </code></pre>
 <style>
   #highlight-target {
@@ -604,7 +603,7 @@ can find a list of the keywords in <a href="appendix-01-keywords.html">Appendix 
 <p>When a variable is immutable, once a value is bound to a name, you can't change that value. To illustrate this, generate a new file called <code>variables.cx</code> in your <code>projects</code> directory.</p>
 <p>Then, open <code>variables.cx</code> and add it's following code which won't interpret just yet:</p>
 <p><span class="filename">Filename: <code>variables.cx</code></span></p>
-<pre><code class="language-calyxium no">let x: int = 10
+<pre><code class="language-calyxium no">let x = 10
 x := 12
 </code></pre>
 <p>Save and run the program using <code>calyxium variables.cx</code>. You should receive an error message regarding an immutability error, as shown in this output:</p>
@@ -682,7 +681,7 @@ single line, you’ll need to include <code>--</code> on each line, like this:</
 </ul>
 <p>For example:</p>
 <pre><code class="language-calyxium">-- $ Returns the square of a number $
-let square(x: int): int {
+let square(x) {
     x * x
 }
 </code></pre>
@@ -726,7 +725,7 @@ This is normally located at <code>%USERPROFILE%\Documents\Github\</code> for Win
 <p>You can download and install OCaml from the <a href="https://ocaml.org/install#win">official site</a>.</p>
 <h3 id="installing-dune"><a class="header" href="#installing-dune">Installing Dune</a></h3>
 <p>Once you have installed OCaml you will need to install Dune using the following command.</p>
-<pre><code class="language-console">$ opam install dune
+<pre><code class="language-console">$ opam install dune menhir
 </code></pre>
 <hr />
 <p>If you are having issues with opam, remember to activate the opam switch with the following command on cmd.</p>
