@@ -180,16 +180,12 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="foreword"><a class="header" href="#foreword">Foreword</a></h1>
-<blockquote>
-<p>Under Construction</p>
-</blockquote>
+<p>If you're interested in learning Calyxium, this book is the right place to start! Here you will find everything you need to know about the language and it's contents. The book will take you from the very basics to the more advanced concepts, and after you're finished reading you will have a good foundation to start using Calyxium. The book can also be used as reference material, specifically in the appendix. For any general questions or inquiries please join the discord server which is linked on the <a href="https://github.com/calyxium-lang">github.</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <p>Welcome to <em>The Calyxium Programming Language</em>, an introductory book about Calyxium. The Calyxium programming language helps you write faster, reliable software. High-level ergonomics with purity, safety, and speed.</p>
-<h2 id="who-calyxium-is-for"><a class="header" href="#who-calyxium-is-for">Who Calyxium is For</a></h2>
-<p>Calyxium is ideal for many people for a variety of reasons. Let’s look at a few of the most important groups.</p>
-<h3 id="students"><a class="header" href="#students">Students</a></h3>
-<p>Calyxium is for students and those who are interested about learning functional programming concepts. Using Calyxium, many people have learned about topics like expression based languages, immutable variables and polymorphism.  The community is very welcoming and happy to answer student questions. Through efforts such as this book, the Calyxium teams want to make functional concepts more accessible to more people, especially those new to programming.</p>
-<h2 id="who-is-this-book-for"><a class="header" href="#who-is-this-book-for">who Is This Book For</a></h2>
+<h2 id="who-calyxium-is-for"><a class="header" href="#who-calyxium-is-for">Who Calyxium Is For</a></h2>
+<p>Calyxium is great for people like hobbyists, students and professionals looking to dwell deeper into functional programming. Although Calyxium is not a purely functional programming language it has a lot of similarities to existing ones like Haskell, OCaml F#.</p>
+<h2 id="who-is-this-book-for"><a class="header" href="#who-is-this-book-for">Who Is This Book For</a></h2>
 <p>This book assumes that you’ve written code in another programming language but
 doesn’t make any assumptions about which one. We’ve tried to make the material
 broadly accessible to those from a wide variety of programming backgrounds. We
@@ -199,7 +195,7 @@ reading a book that specifically provides an introduction to programming.
 Don't feel threatened if you are new however, as it can be a good brain exercise,
 and you are also challenging yourself to do something new. Not a lot of people
 are doing that these days!</p>
-<h2 id="how-to-use-this-book"><a class="header" href="#how-to-use-this-book">How to Use This Book</a></h2>
+<h2 id="how-to-use-this-book"><a class="header" href="#how-to-use-this-book">How To Use This Book</a></h2>
 <p>In general, this book assumes that you’re reading it in sequence from front to
 back. Later chapters build on concepts in earlier chapters, and earlier
 chapters might not delve into details on a particular topic but will revisit
@@ -691,6 +687,63 @@ let square(x) {
 <div style="break-before: page; page-break-before: always;"></div><h1 id="control-flow"><a class="header" href="#control-flow">Control Flow</a></h1>
 <blockquote>
 <p>Under Construction</p>
+</blockquote>
+<p>The ability to run some code depending on whether a condition is <code>true</code> and to run some code repeatedly while a condition is <code>true</code> are basic building blocks in most programming languages. The most common constructs that let you control the flow of execution of Calyxium code are <code>if</code> expressions and loops.</p>
+<h3 id="if-expressions"><a class="header" href="#if-expressions"><code>If</code> Expressions</a></h3>
+<p>An <code>if</code> expression allows you to branch your code depending on conditions. You
+provide a condition and then state, “If this condition is met, run this block
+of code. If the condition is not met, do not run this block of code.”</p>
+<pre><code class="language-calyxium no">let number = 3 in
+
+if number &lt; 5 then print("condition was true") else print("condition was false")
+</code></pre>
+<p>All <code>if</code> expressions start with the keyword <code>if</code>, followed by a condition. In
+this case, the condition checks whether or not the variable <code>number</code> has a
+value less than 5. The block of code to execute if the condition is true follows immediately after the then keyword. Similarly, the block to execute if the condition is false follows the optional else keyword. These blocks of code are sometimes called arms.</p>
+<p>Optionally, we can also include an <code>else</code> expression, which we chose to do
+here, to give the program an alternative block of code to execute should the
+condition evaluate to <code>false</code>. If you don’t provide an <code>else</code> expression and
+the condition is <code>false</code>, the program will just skip the <code>if</code> block and move on
+to the next bit of code.</p>
+<p>Try running this code; you should see the following output:</p>
+<pre><code>condition was true
+</code></pre>
+<p>Let’s try changing the value of <code>number</code> to a value that makes the condition
+<code>false</code> to see what happens:</p>
+<pre><code class="language-calyxium no">let number = 7 in
+
+if number &lt; 5 then print("condition was true") else print("condition was false")
+</code></pre>
+<p>Run the program again, and look at the output:</p>
+<pre><code>condition was false
+</code></pre>
+<p>It’s also worth noting that the condition in this code <em>must</em> be a <code>bool</code>. If
+the condition isn’t a <code>bool</code>, we’ll get an error. For example, try running the
+following code:</p>
+<pre><code class="language-calyxium no">let number = 3 in
+
+if number then print("condition was true") else print("condition was false")
+</code></pre>
+<p>The <code>if</code> condition evaluates to a value of <code>3</code> this time, and Calyxium throws an
+error:</p>
+<pre><code>.\main.cx: Type error in `if` expression condition:
+  Expected: bool
+  Found:    int
+</code></pre>
+<p>The error indicates that Calyxium expected a <code>bool</code> but got an integer. Unlike
+languages such as Ruby and JavaScript, Calyxium will not automatically try to
+convert non-Boolean types to a Boolean. You must be explicit and always provide
+<code>if</code> with a Boolean as its condition. If we want the <code>if</code> code block to run
+only when a number is not equal to <code>0</code>, for example, we can change the <code>if</code>
+expression to the following:</p>
+<pre><code>let number = 3 in
+
+if number != 0 then print("number was something other than zero")
+</code></pre>
+<p>Running this code will print <code>number was something other than zero</code>.</p>
+<blockquote>
+<p>Note: <code>if</code> expressions in Calyxium are expression based, which means they evaluate
+to a value. You can assign their result to a variable or use them directly in larger expressions.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="its-not-a-bug-its-a-feature"><a class="header" href="#its-not-a-bug-its-a-feature">It's not a bug it's a feature</a></h1>
 <blockquote>
