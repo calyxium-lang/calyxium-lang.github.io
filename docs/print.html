@@ -281,9 +281,7 @@ might want to skip Chapter 2 and go straight to Chapter 3, returning to Chapter
 <li><code>mod</code> - define a module</li>
 <li><code>true</code> - Boolean true literal</li>
 <li><code>false</code> - Boolean false literal</li>
-<li><code>enum</code> - define an enumeration</li>
-<li><code>record</code> - define a record</li>
-<li><code>type</code> - define a ADT</li>
+<li><code>type</code> - define a ADT/record, and enumeration</li>
 <li><code>fn</code> - define a anonymous functions, lambda abstraction</li>
 </ul>
 <h3 id="deprecated-keywords"><a class="header" href="#deprecated-keywords">Deprecated keywords</a></h3>
@@ -391,6 +389,8 @@ Calyxium for potential future use.</p>
 <li><code>head</code> - returns the first element of an array</li>
 <li><code>tail</code> - returns a new array containing all elements except the first</li>
 <li><code>reverse</code> - returns a new array with elements in the opposite order</li>
+<li><code>fst</code> - returns the first element of a tuple</li>
+<li><code>snd</code> - returns the second element of a tuple</li>
 </ul>
 <h3 id="built-ins-reserved-for-future-use"><a class="header" href="#built-ins-reserved-for-future-use">Built-ins Reserved for Future Use</a></h3>
 <p>The following built-ins do not yet have any functionality but are reserved by
@@ -535,13 +535,13 @@ and a directory for the <code>“Hello, world!”</code> project within the <cod
 <p>For Linux, macOS and PowerShell on Windows, enter this</p>
 <pre><code class="language-console">$ mkdir ~/projects
 $ cd ~/projects
-$ mkdir hello_world
+$ calyxium new hello_world
 $ cd hello_world
 </code></pre>
 <p>For Windows CMD, enter this:</p>
 <pre><code class="language-cmd">&gt; mkdir "%USERPROFILE%\projects"
 &gt; cd /d "%USERPROFILE%\projects"
-&gt; mkdir hello_world
+&gt; calyxium new hello_world
 &gt; cd hello_world
 </code></pre>
 <h3 id="writing-and-running-a-calyxium-program"><a class="header" href="#writing-and-running-a-calyxium-program">Writing and Running a Calyxium Program</a></h3>
@@ -550,20 +550,20 @@ the <code>.cx</code> extension. If you’re using more than one word in your fil
 convention is to use an underscore to separate them. For example, use
 <code>hello_world.cx</code> rather than <code>helloworld.cx</code>.</p>
 <p>Now open the <code>main.cx</code> file you just created and enter the code in listed below.</p>
-<pre><code class="language-calyxium">print("Hello, world!")
+<pre><code class="language-calyxium">print("Hello from hello_world!\n")
 </code></pre>
 <p>Save the file and go back to your terminal in the
 <code>~/projects/hello_world</code> directory. Enter the following
 commands to run the file:</p>
 <pre><code class="language-console">$ calyxium main.cx
-Hello, world!
+Hello from hello_world!
 </code></pre>
 <p>Regardless of your operating system, the string <code>Hello, world!</code> should print to
 the terminal.</p>
 <p>If <code>Hello, world!</code> did print, congratulations! You’ve officially written a Calyxium
 program. That makes you a <em>Calyxium programmer</em>. Welcome to the club!</p>
 <p>Let’s review this “Hello, world!” program in detail.</p>
-<pre><code class="language-calyxium">print("Hello, world!")
+<pre><code class="language-calyxium">print("Hello from hello_world!\n")
 </code></pre>
 <p>This line does all the work in this little program: it prints text to the screen. There are two important details to notice here.</p>
 <ul>
@@ -571,7 +571,7 @@ program. That makes you a <em>Calyxium programmer</em>. Welcome to the club!</p>
 <p><code>print</code> calls the function to display contents to your terminal.</p>
 </li>
 <li>
-<p>You see the <code>"Hello, world!"</code> string. We pass this string as an argument to <code>print</code>, and the string is printed to the screen.</p>
+<p>You see the <code>"Hello from hello_world!"</code> string. We pass this string as an argument to <code>print</code>, and the string is printed to the screen.</p>
 </li>
 <li>
 <p>Unlike in Python, <code>print</code> does <strong>not</strong> automatically add a newline (<code>\n</code>) at the end. If you want a line break, you’ll need to include <code>\n</code> yourself.</p>
@@ -648,9 +648,14 @@ The name comes from English mathematician <a href="https://en.wikipedia.org/wiki
 These are the least memory intensive only taking a single bit of storage.</p>
 <p>To write a boolean simply write <code>true</code> or <code>false</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="how-functions-work"><a class="header" href="#how-functions-work">How Functions Work</a></h1>
-<blockquote>
-<p>Under Construction</p>
-</blockquote>
+<p>In <strong>Calyxium</strong>, functions are one of the core building blocks of the language. They are among the only statement forms in the language, and they behave much like functions you might see in other programming languages.</p>
+<p>A function in Calyxium:</p>
+<ul>
+<li>Defines a reusable block of logic.</li>
+<li>Can accept parameters and return values.</li>
+<li>Works consistently across both simple expressions and more complex programs.</li>
+</ul>
+<p>Because Calyxium treats <em>everything as an expression</em>, functions naturally integrate with the rest of the language. This means they can be declared, passed around, and invoked in a straightforward way, without extra boilerplate.</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="comments"><a class="header" href="#comments">Comments</a></h2>
 <p>All programmers strive to make their code easy to understand, but sometimes
 extra explanation is warranted. In these cases, programmers leave <em>comments</em> in

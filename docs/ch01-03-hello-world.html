@@ -188,13 +188,13 @@ and a directory for the <code>“Hello, world!”</code> project within the <cod
 <p>For Linux, macOS and PowerShell on Windows, enter this</p>
 <pre><code class="language-console">$ mkdir ~/projects
 $ cd ~/projects
-$ mkdir hello_world
+$ calyxium new hello_world
 $ cd hello_world
 </code></pre>
 <p>For Windows CMD, enter this:</p>
 <pre><code class="language-cmd">&gt; mkdir "%USERPROFILE%\projects"
 &gt; cd /d "%USERPROFILE%\projects"
-&gt; mkdir hello_world
+&gt; calyxium new hello_world
 &gt; cd hello_world
 </code></pre>
 <h3 id="writing-and-running-a-calyxium-program"><a class="header" href="#writing-and-running-a-calyxium-program">Writing and Running a Calyxium Program</a></h3>
@@ -203,20 +203,20 @@ the <code>.cx</code> extension. If you’re using more than one word in your fil
 convention is to use an underscore to separate them. For example, use
 <code>hello_world.cx</code> rather than <code>helloworld.cx</code>.</p>
 <p>Now open the <code>main.cx</code> file you just created and enter the code in listed below.</p>
-<pre><code class="language-calyxium">print("Hello, world!")
+<pre><code class="language-calyxium">print("Hello from hello_world!\n")
 </code></pre>
 <p>Save the file and go back to your terminal in the
 <code>~/projects/hello_world</code> directory. Enter the following
 commands to run the file:</p>
 <pre><code class="language-console">$ calyxium main.cx
-Hello, world!
+Hello from hello_world!
 </code></pre>
 <p>Regardless of your operating system, the string <code>Hello, world!</code> should print to
 the terminal.</p>
 <p>If <code>Hello, world!</code> did print, congratulations! You’ve officially written a Calyxium
 program. That makes you a <em>Calyxium programmer</em>. Welcome to the club!</p>
 <p>Let’s review this “Hello, world!” program in detail.</p>
-<pre><code class="language-calyxium">print("Hello, world!")
+<pre><code class="language-calyxium">print("Hello from hello_world!\n")
 </code></pre>
 <p>This line does all the work in this little program: it prints text to the screen. There are two important details to notice here.</p>
 <ul>
@@ -224,7 +224,7 @@ program. That makes you a <em>Calyxium programmer</em>. Welcome to the club!</p>
 <p><code>print</code> calls the function to display contents to your terminal.</p>
 </li>
 <li>
-<p>You see the <code>"Hello, world!"</code> string. We pass this string as an argument to <code>print</code>, and the string is printed to the screen.</p>
+<p>You see the <code>"Hello from hello_world!"</code> string. We pass this string as an argument to <code>print</code>, and the string is printed to the screen.</p>
 </li>
 <li>
 <p>Unlike in Python, <code>print</code> does <strong>not</strong> automatically add a newline (<code>\n</code>) at the end. If you want a line break, you’ll need to include <code>\n</code> yourself.</p>
